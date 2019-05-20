@@ -1,14 +1,13 @@
 package com.example.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import com.example.services.CommentService;
 import com.example.models.Comment;
@@ -32,9 +31,12 @@ public class CommentController {
 		return commentService.getAllCommentsByPost(post);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/add")
-	public void addComment(){
-		
+	@RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.CREATED)
+	public CommentJSON addComment(@Valid @RequestBody CommentJSON comment) {
+		// test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
+		// or JPA RollbackException (DB side)
+		return commentService.addComment(comment);
 	}
 	
 }
