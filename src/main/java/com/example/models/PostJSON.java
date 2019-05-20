@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.sql.Date;
+import java.util.List;
 
 public class PostJSON {
 
@@ -9,7 +10,14 @@ public class PostJSON {
 	private Date date;
 	private String contenu;
 	private int id_user;
+	private List<Comment> comments;
 	
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 	public int getId() {
 		return id;
 	}

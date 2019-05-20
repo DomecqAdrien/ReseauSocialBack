@@ -16,6 +16,7 @@ public class PostMapper {
         Assert.notNull(postJSON, "The userJSON must not be null");
         Post p = new Post();
         // must not set id !
+        p.setComments(postJSON.getComments());
         p.setTitre(postJSON.getTitre());
         p.setDate(postJSON.getDate());
         p.setContenu(postJSON.getContenu());
@@ -27,6 +28,7 @@ public class PostMapper {
     public PostJSON mapTo(Post post) {
         Assert.notNull(post, "The user must not be null");
         PostJSON pJSON = new PostJSON();
+        pJSON.setComments(post.getComments());
         pJSON.setTitre(post.getTitre());
         pJSON.setDate(post.getDate());
         pJSON.setContenu(post.getContenu());

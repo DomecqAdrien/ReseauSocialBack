@@ -4,10 +4,25 @@ import java.sql.Date;
 
 public class CommentJSON {
 
+	private int id;
 	private Date date;
 	private String commentaire;
 	private int id_user;
 	private int id_post;
+	private Post post;
+	
+	public Post getPost() {
+		return post;
+	}
+	public void setPost(Post post) {
+		this.post = post;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public Date getDate() {
 		return date;

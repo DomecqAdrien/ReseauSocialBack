@@ -10,28 +10,30 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.example.services.PostService;
+import com.example.services.CommentService;
 import com.example.models.CommentJSON;
-import com.example.models.PostJSON;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/posts")
-public class PostController {
+@RequestMapping("/comments")
+public class CommentController {
 	
 	@Resource
-	private PostService postService;
+	private CommentService commentService;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public List<PostJSON> getAll(){
-		return postService.getAllPosts();
+	@GetMapping("/membres")
+    public String getAllMembre(){
+		return "hii";
 	}
 	
-//	@RequestMapping(method = RequestMethod.GET, value = "/{post}")
-//	public List<CommentJSON> getAllByPost(@PathVariable int post){
-//		return postService.getPostById(post);
-//	}
+	@RequestMapping(method = RequestMethod.GET)
+	public List<CommentJSON> getAll(){
+		return commentService.getAllComments();
+	}
 	
-	
+	@RequestMapping(method = RequestMethod.GET, value = "/post/{post}")
+	public List<CommentJSON> getAllByPost(@PathVariable int post){
+		return commentService.getAllCommentsByPost(post);
+	}
 	
 }

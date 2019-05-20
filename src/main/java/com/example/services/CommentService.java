@@ -1,36 +1,43 @@
 package com.example.services;
 
-import com.example.helper.PostMapper;
-import com.example.models.Post;
-import com.example.models.PostJSON;
-import com.example.repository.PostRepository;
+import com.example.helper.CommentMapper;
+import com.example.models.Comment;
+import com.example.models.CommentJSON;
+import com.example.repository.CommentRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+
+import java.awt.print.Book;
 import java.util.List;
 
 @Service
 public class CommentService {
 
     @Resource
-    private PostRepository postRepository;
+    private CommentRepository commentRepository;
 
     @Resource
-    private PostMapper mapper;
+    private CommentMapper mapper;
 
-    public List<PostJSON> getAllPosts() {
-        List<Post> postList = postRepository.findAll();
-        return mapper.mapTo(postList);
+    public List<CommentJSON> getAllComments() {
+        List<Comment> commentList = commentRepository.findAll();
+        return mapper.mapTo(commentList);
     }
 
-    public PostJSON getPostById(long id) {
-        Post p = postRepository.getOne(id);
-        return mapper.mapTo(p);
+    public CommentJSON getCommentById(long id) {
+    	Comment c = commentRepository.getOne(id);
+        return mapper.mapTo(c);
     }
 
-    public PostJSON addPost(PostJSON post) {
-        Post p = postRepository.save(mapper.mapTo(post));
-        return mapper.mapTo(p);
+    public CommentJSON addComment(CommentJSON comment) {
+    	Comment c = commentRepository.save(mapper.mapTo(comment));
+        return mapper.mapTo(c);
+    }
+    
+    public List<CommentJSON> getAllCommentsByPost(int post){
+    	List<Comment> commentList = commentRepository.findByPostId(post);
+		return mapper.mapTo(commentList);
     }
 
     /*public List<UserJSON> getAllBooksByAuthor(String author) {
