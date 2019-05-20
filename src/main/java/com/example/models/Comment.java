@@ -2,17 +2,11 @@ package com.example.models;
 
 import java.sql.Date;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -24,7 +18,6 @@ public class Comment {
 	private Date date;
 	private String commentaire;
 	private long id_user;
-//	private long id_post;
 	
 	@ManyToOne
 	@JoinColumn
@@ -62,11 +55,5 @@ public class Comment {
 	public void setId_user(long id_user) {
 		this.id_user = id_user;
 	}
-	/*public long getId_post() {
-		return id_post;
-	}
-	public void setId_post(long id_post) {
-		this.id_post = id_post;
-	}*/
 	
 }

@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import com.example.services.CommentService;
-import com.example.models.Comment;
 import com.example.models.CommentJSON;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -34,9 +33,9 @@ public class CommentController {
 	@RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public CommentJSON addComment(@Valid @RequestBody CommentJSON comment) {
-		// test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
-		// or JPA RollbackException (DB side)
 		return commentService.addComment(comment);
 	}
+	
+	
 	
 }

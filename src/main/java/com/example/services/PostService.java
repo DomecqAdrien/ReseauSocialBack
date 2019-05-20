@@ -32,9 +32,13 @@ public class PostService {
         Post p = postRepository.save(mapper.mapTo(post));
         return mapper.mapTo(p);
     }
+    
+    public PostJSON editPost(PostJSON post) {
+    	Post p = postRepository.findById(post.getId()).get();
+    	p.setContenu(post.getContenu());
+    	p.setTitre(post.getTitre());
+    	postRepository.save(p);
+    	return mapper.mapTo(p);
+    }
 
-    /*public List<UserJSON> getAllBooksByAuthor(String author) {
-        List<User> bookList = bookRepository.findByAuthor(author);
-        return mapper.mapTo(bookList);
-    }*/
 }
