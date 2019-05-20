@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import com.example.services.PostService;
 import com.example.models.PostJSON;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/posts")
 public class PostController {

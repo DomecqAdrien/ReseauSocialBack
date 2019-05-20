@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import com.example.services.CommentService;
 import com.example.models.CommentJSON;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
