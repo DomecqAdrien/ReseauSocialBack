@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.example.services.CommentService;
+import com.example.models.Comment;
 import com.example.models.CommentJSON;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -20,12 +21,7 @@ public class CommentController {
 	
 	@Resource
 	private CommentService commentService;
-	
-	@GetMapping("/membres")
-    public String getAllMembre(){
-		return "hii";
-	}
-	
+		
 	@RequestMapping(method = RequestMethod.GET)
 	public List<CommentJSON> getAll(){
 		return commentService.getAllComments();
@@ -34,6 +30,11 @@ public class CommentController {
 	@RequestMapping(method = RequestMethod.GET, value = "/post/{post}")
 	public List<CommentJSON> getAllByPost(@PathVariable int post){
 		return commentService.getAllCommentsByPost(post);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/add")
+	public void addComment(){
+		
 	}
 	
 }

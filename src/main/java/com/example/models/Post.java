@@ -22,12 +22,12 @@ public class Post {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String titre;
 	private Date date;
 	@Column(columnDefinition = "LONGTEXT")
 	private String contenu;
-	private int id_user;
+	private long id_user;
 	
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	private List<Comment> comments;
@@ -38,10 +38,10 @@ public class Post {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitre() {
@@ -62,10 +62,10 @@ public class Post {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public int getId_user() {
+	public long getId_user() {
 		return id_user;
 	}
-	public void setId_user(int id_user) {
+	public void setId_user(long id_user) {
 		this.id_user = id_user;
 	}
 }

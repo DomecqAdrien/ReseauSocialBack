@@ -19,12 +19,7 @@ public class UserController {
 	
 	@Resource
 	private UserService userService;
-	
-	@GetMapping("/membres")
-    public String getAllMembre(){
-		return "hii";
-	}
-	
+		
 	@RequestMapping(method = RequestMethod.GET)
 	public List<UserJSON> getAll(){
 		return userService.getAllUsers();

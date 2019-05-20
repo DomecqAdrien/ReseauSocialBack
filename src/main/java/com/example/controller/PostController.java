@@ -27,10 +27,10 @@ public class PostController {
 		return postService.getAllPosts();
 	}
 	
-//	@RequestMapping(method = RequestMethod.GET, value = "/{post}")
-//	public List<CommentJSON> getAllByPost(@PathVariable int post){
-//		return postService.getPostById(post);
-//	}
+	@RequestMapping(method = RequestMethod.GET, value = "/{post}")
+	public PostJSON getOnePost(@PathVariable int post){
+		return postService.getPostById(post);
+	}
 	
 	
 	

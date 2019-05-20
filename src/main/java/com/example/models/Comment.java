@@ -20,11 +20,11 @@ public class Comment {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private Date date;
 	private String commentaire;
-	private int id_user;
-//	private int id_post;
+	private long id_user;
+//	private long id_post;
 	
 	@ManyToOne
 	@JoinColumn
@@ -37,10 +37,10 @@ public class Comment {
 	public void setPost(Post post) {
 		this.post = post;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	
@@ -56,16 +56,16 @@ public class Comment {
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
-	public int getId_user() {
+	public long getId_user() {
 		return id_user;
 	}
-	public void setId_user(int id_user) {
+	public void setId_user(long id_user) {
 		this.id_user = id_user;
 	}
-	/*public int getId_post() {
+	/*public long getId_post() {
 		return id_post;
 	}
-	public void setId_post(int id_post) {
+	public void setId_post(long id_post) {
 		this.id_post = id_post;
 	}*/
 	
