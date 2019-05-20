@@ -1,8 +1,8 @@
 package com.example.models;
 
-import java.awt.TextArea;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +12,12 @@ import javax.persistence.Id;
 public class Post {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String titre;
 	private Date date;
-	private TextArea contenu;
+	@Column(columnDefinition = "LONGTEXT")
+	private String contenu;
 	private int id_user;
 	
 	public int getId() {
@@ -37,10 +38,10 @@ public class Post {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public TextArea getContenu() {
+	public String getContenu() {
 		return contenu;
 	}
-	public void setContenu(TextArea contenu) {
+	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
 	public int getId_user() {

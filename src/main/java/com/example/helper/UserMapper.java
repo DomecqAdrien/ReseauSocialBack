@@ -32,6 +32,6 @@ public class UserMapper {
 
     public List<UserJSON> mapTo(List<User> userList) {
         Assert.notNull(userList, "The userList must not be null");
-        return userList.stream().map(book -> this.mapTo(book)).collect(Collectors.toList());
+        return userList.stream().map(user -> this.mapTo(user)).collect(Collectors.toList());
     }
 }

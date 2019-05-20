@@ -1,6 +1,5 @@
 package com.example.models;
 
-import java.awt.TextArea;
 import java.sql.Date;
 
 public class PostJSON {
@@ -8,7 +7,7 @@ public class PostJSON {
 	private int id;
 	private String titre;
 	private Date date;
-	private TextArea contenu;
+	private String contenu;
 	private int id_user;
 	
 	public int getId() {
@@ -29,10 +28,10 @@ public class PostJSON {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public TextArea getContenu() {
+	public String getContenu() {
 		return contenu;
 	}
-	public void setContenu(TextArea contenu) {
+	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
 	public int getId_user() {
