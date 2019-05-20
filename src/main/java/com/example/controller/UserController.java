@@ -14,8 +14,7 @@ import com.example.models.UserJSON;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping(value = "users")
-
+@RequestMapping("/users")
 public class UserController {
 	
 	@Resource
