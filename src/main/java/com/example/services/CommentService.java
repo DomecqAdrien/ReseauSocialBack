@@ -38,6 +38,10 @@ public class CommentService {
     	List<Comment> commentList = commentRepository.findByPostId(post);
 		return mapper.mapTo(commentList);
     }
+    
+    public void deleteComment(CommentJSON comment) {
+    	commentRepository.delete(mapper.mapTo(comment));
+    }
 
     /*public List<UserJSON> getAllBooksByAuthor(String author) {
         List<User> bookList = bookRepository.findByAuthor(author);

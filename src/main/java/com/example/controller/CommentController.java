@@ -36,6 +36,12 @@ public class CommentController {
 		return commentService.addComment(comment);
 	}
 	
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String deletePost(@Valid @RequestBody CommentJSON comment) {
+		commentService.deleteComment(comment);
+		return "Commentaire supprimé";
+	}
+	
 	
 	
 }
