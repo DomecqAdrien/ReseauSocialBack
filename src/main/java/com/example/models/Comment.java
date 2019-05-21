@@ -17,7 +17,11 @@ public class Comment {
 	private long id;
 	private Date date;
 	private String commentaire;
-	private long id_user;
+	
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn
@@ -49,11 +53,11 @@ public class Comment {
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
-	public long getId_user() {
-		return id_user;
+	public User getUser() {
+		return user;
 	}
-	public void setId_user(long id_user) {
-		this.id_user = id_user;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

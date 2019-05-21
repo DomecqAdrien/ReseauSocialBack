@@ -9,8 +9,8 @@ public class PostJSON {
 	private String titre;
 	private Date date;
 	private String contenu;
-	private long id_user;
 	private List<Comment> comments;
+	private User user;
 	
 	public List<Comment> getComments() {
 		return comments;
@@ -42,10 +42,12 @@ public class PostJSON {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public long getId_user() {
-		return id_user;
+	public User getUser() {
+		return user;
 	}
-	public void setId_user(long id_user) {
-		this.id_user = id_user;
+	public void setUser(User user) {
+		this.user = user;
 	}
+	
+	
 }

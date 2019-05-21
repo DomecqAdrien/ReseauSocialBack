@@ -7,8 +7,8 @@ public class CommentJSON {
 	private long id;
 	private Date date;
 	private String commentaire;
-	private long id_user;
 	private Post post;
+	private User user;
 	
 	public Post getPost() {
 		return post;
@@ -35,11 +35,13 @@ public class CommentJSON {
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
-	public long getId_user() {
-		return id_user;
+	public User getUser() {
+		return user;
 	}
-	public void setId_user(long id_user) {
-		this.id_user = id_user;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+	
 	
 }

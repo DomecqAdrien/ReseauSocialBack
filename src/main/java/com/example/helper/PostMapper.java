@@ -20,7 +20,7 @@ public class PostMapper {
         p.setTitre(postJSON.getTitre());
         p.setDate(postJSON.getDate());
         p.setContenu(postJSON.getContenu());
-        p.setId_user(postJSON.getId_user());
+        p.setUser(postJSON.getUser());
 
         return p;
     }
@@ -32,7 +32,7 @@ public class PostMapper {
         pJSON.setTitre(post.getTitre());
         pJSON.setDate(post.getDate());
         pJSON.setContenu(post.getContenu());
-        pJSON.setId_user(post.getId_user());
+        pJSON.setUser(post.getUser());
         pJSON.setId(post.getId());
         return pJSON;
     }

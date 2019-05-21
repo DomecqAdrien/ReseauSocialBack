@@ -32,6 +32,11 @@ public class UserService {
         User u = userRepository.save(mapper.mapTo(user));
         return mapper.mapTo(u);
     }
+    
+    public UserJSON login(String username) {
+    	User u = userRepository.findByUsername(username);
+    	return mapper.mapTo(u);	
+    }
 
     /*public List<UserJSON> getAllBooksByAuthor(String author) {
         List<User> bookList = bookRepository.findByAuthor(author);

@@ -9,7 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Post {
@@ -21,9 +25,14 @@ public class Post {
 	private Date date;
 	@Column(columnDefinition = "LONGTEXT")
 	private String contenu;
-	private long id_user;
+	
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private User user;
 	
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Comment> comments;
 	
 	public List<Comment> getComments() {
@@ -35,6 +44,7 @@ public class Post {
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -56,10 +66,10 @@ public class Post {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public long getId_user() {
-		return id_user;
+	public User getUser() {
+		return user;
 	}
-	public void setId_user(long id_user) {
-		this.id_user = id_user;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

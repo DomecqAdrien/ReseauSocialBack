@@ -18,6 +18,10 @@ public class UserMapper {
         // must not set id !
         u.setUsername(userJSON.getUsername());
         u.setPassword(userJSON.getPassword());
+        u.setPrenom(userJSON.getPrenom());
+        u.setNom(userJSON.getNom());
+        u.setComments(userJSON.getComments());
+        u.setPosts(userJSON.getPosts());
         return u;
     }
 
@@ -26,6 +30,10 @@ public class UserMapper {
         UserJSON uJSON = new UserJSON();
         uJSON.setUsername(user.getUsername());
         uJSON.setPassword(user.getPassword());
+        uJSON.setPrenom(user.getPrenom());
+        uJSON.setNom(user.getNom());
+        uJSON.setComments(user.getComments());
+        uJSON.setPosts(user.getPosts());
         uJSON.setId(user.getId());
         return uJSON;
     }

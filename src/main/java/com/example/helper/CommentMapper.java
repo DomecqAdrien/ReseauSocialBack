@@ -19,7 +19,7 @@ public class CommentMapper {
         c.setCommentaire(commentJSON.getCommentaire());
         c.setDate(commentJSON.getDate());
         c.setPost(commentJSON.getPost());
-        c.setId_user(commentJSON.getId_user());
+        c.setUser(commentJSON.getUser());
 
         return c;
     }
@@ -31,7 +31,7 @@ public class CommentMapper {
         cJSON.setCommentaire(c.getCommentaire());
         cJSON.setDate(c.getDate());
         cJSON.setPost(c.getPost());
-        cJSON.setId_user(c.getId_user());
+        cJSON.setUser(c.getUser());
         return cJSON;
     }
 
